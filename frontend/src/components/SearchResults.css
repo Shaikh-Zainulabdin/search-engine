@@ -1,0 +1,83 @@
+/* ─────────────────────────────────────────────────────────
+   SearchResults.css
+   ───────────────────────────────────────────────────────── */
+
+.search-results {
+  margin-top: 20px;
+}
+
+.results-meta {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin: 0 0 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
+  letter-spacing: 0.01em;
+}
+
+.results-meta strong {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ── Result list entrance animation ────────────────────── */
+.results-list {
+  animation: fadeSlideIn 0.22s ease-out both;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ── Image results grid ───────────────────────────────── */
+
+.results-list--images {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.results-list--images .result-item {
+  padding: 0;
+  border-bottom: none;
+}
+
+.results-list--images .result-item:hover {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.results-list--images .result-title {
+  font-size: 15px;
+  line-height: 1.4;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.results-list--images .result-domain {
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+.results-list--images .result-source {
+  margin-top: 4px;
+}
+
+@media (max-width: 900px) {
+  .results-list--images {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .results-list--images {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,66 @@
+/* ─────────────────────────────────────────────────────────
+   EmptyState.css
+   ───────────────────────────────────────────────────────── */
+
+.empty-state {
+  margin-top: 64px;
+  padding: 0 8px;
+}
+
+.empty-rule {
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+  border: none;
+  margin: 0 0 24px;
+}
+
+.empty-heading {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.empty-query {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0 0 24px;
+  line-height: 1.6;
+}
+
+.empty-query em {
+  font-style: normal;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.empty-suggestions-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 0 0 10px;
+}
+
+.empty-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty-suggestion {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding-left: 14px;
+  position: relative;
+}
+
+.empty-suggestion::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--border);
+}

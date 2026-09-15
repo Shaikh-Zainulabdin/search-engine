@@ -1,0 +1,278 @@
+/* ─────────────────────────────────────────────────────────
+   App.css — Top-level layout & landing page hero
+   ───────────────────────────────────────────────────────── */
+
+/* ── Outer shell ────────────────────────────────────────── */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Subtle background texture ──────────────────────────── */
+.app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(32, 32, 30, 0.09) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Decorative large X ─────────────────────────────────── */
+.app::after {
+  content: "X";
+  position: fixed;
+  right: -2vw;
+  bottom: -4vh;
+  font-family: var(--font-serif);
+  font-size: clamp(280px, 30vw, 480px);
+  font-style: italic;
+  color: rgba(214, 90, 49, 0.045);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  letter-spacing: -8px;
+}
+
+/* ── Header ──────────────────────────────────────────────── */
+.app-header {
+  position: relative;
+  z-index: 10;
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  background-color: rgba(245, 243, 238, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+/* Header hidden on landing page */
+.app--landing .app-header {
+  display: none;
+}
+
+/* ── Header search ───────────────────────────────────────── */
+.header-search {
+  flex: 1;
+  max-width: 560px;
+}
+
+/* ── Logo ───────────────────────────────────────────────── */
+.app-logo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.app-logo:hover {
+  opacity: 0.75;
+}
+
+.logo-accent {
+  color: var(--accent);
+}
+
+/* ── Main content area ──────────────────────────────────── */
+.app-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 40px 80px;
+  box-sizing: border-box;
+}
+
+/* Landing page centered layout */
+.app-main--centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 640px;
+  min-height: 100vh;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+/* ── Landing hero ───────────────────────────────────────── */
+.hero {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.hero-logo {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(52px, 9vw, 80px);
+  font-weight: 400;
+  letter-spacing: -2px;
+  line-height: 1;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.hero-logo .logo-accent {
+  color: var(--accent);
+}
+
+.hero-tagline {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+/* ── Search section ─────────────────────────────────────── */
+.search-section {
+  /* SearchBar and CategoryTabs contain their own styles */
+}
+
+/* ── Body content ───────────────────────────────────────── */
+.body-section {
+  margin-top: 8px;
+}
+
+/* ── Back / Forward navigation ──────────────────────────── */
+.navigation-buttons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.navigation-button {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.navigation-button:hover:not(:disabled) {
+  background: rgba(214, 90, 49, 0.08);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+.navigation-button:active:not(:disabled) {
+  transform: scale(0.94);
+}
+
+.navigation-button:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+/* ── Load more ──────────────────────────────────────────── */
+.load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0 16px;
+}
+
+.load-more-button {
+  padding: 10px 24px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.load-more-button:hover {
+  border-color: var(--accent);
+  background: rgba(214, 90, 49, 0.07);
+  color: var(--accent);
+}
+
+.load-more-button:active {
+  transform: translateY(1px);
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 14px 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .app-main {
+    padding: 24px 16px 60px;
+  }
+
+  .app--landing .app-main--centered {
+    min-height: 100svh;
+  }
+
+  .header-search {
+    order: 3;
+    flex-basis: 100%;
+    max-width: none;
+  }
+}
+
+/* ── Small mobile ───────────────────────────────────────── */
+@media (max-width: 480px) {
+  .app::after {
+    display: none;
+  }
+
+  .hero {
+    margin-bottom: 28px;
+  }
+
+  .hero-logo {
+    font-size: 54px;
+  }
+
+  .hero-tagline {
+    font-size: 14px;
+  }
+
+  .navigation-button {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,46 @@
+/* ─────────────────────────────────────────────────────────
+   LoadingState.css
+   ───────────────────────────────────────────────────────── */
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 48px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  letter-spacing: 0.01em;
+}
+
+/* Three animated dots — understated, editorial */
+.loading-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.loading-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: dotPulse 1.2s ease-in-out infinite;
+}
+
+.loading-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotPulse {
+  0%, 80%, 100% {
+    opacity: 0.2;
+    transform: scale(0.85);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
