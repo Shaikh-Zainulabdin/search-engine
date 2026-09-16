@@ -28,7 +28,7 @@ app.add_middleware(
 # SearXNG Configuration
 # ---------------------------------
 
-SEARXNG_URL = "http://localhost:8080"
+SEARXNG_URL = "https://search-engine-searxng.onrender.com"
 
 
 # ---------------------------------
