@@ -17,12 +17,14 @@ app = FastAPI(title="MY Search Engine")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://search-engine-frontend-33ye.onrender.com",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # ---------------------------------
 # SearXNG Configuration
